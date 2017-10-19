@@ -1,0 +1,31 @@
+﻿@using System.Security.Claims
+@{
+    var name = string.Empty;
+    var userIdentity = User.Identities.FirstOrDefault(u => u.IsAuthenticated && u.HasClaim(c => c.Type == ClaimTypes.GivenName));
+    if (userIdentity != null)
+    {
+        name = userIdentity.FindFirst(ClaimTypes.GivenName).Value;
+    }
+}
+@if (User.Identities.Any(u => u.IsAuthenticated))
+{
+    <form asp-area="" asp-controller="Account" asp-action="SignOut" method="post" id="logoutForm">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-area="" asp-controller="Account" asp-action="MyRegistration">
+                    @name
+                </a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Sign out</button>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
+    </ul>
+}
