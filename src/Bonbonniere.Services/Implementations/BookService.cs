@@ -1,10 +1,10 @@
-﻿using Bonbonniere.Core.Interfaces;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-using Bonbonniere.Core.Models.Bonbonniere.BookStore;
+﻿using Bonbonniere.Core.Models.Bonbonniere.BookStore;
 using Bonbonniere.Infrastructure.EFData;
+using Bonbonniere.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Bonbonniere.Services.Implementations
 {

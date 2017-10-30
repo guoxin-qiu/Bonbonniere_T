@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Bonbonniere.Core\Bonbonniere.Core.csproj" />
     <ProjectReference Include="..\Bonbonniere.Infrastructure\Bonbonniere.Infrastructure.csproj" />
   </ItemGroup>

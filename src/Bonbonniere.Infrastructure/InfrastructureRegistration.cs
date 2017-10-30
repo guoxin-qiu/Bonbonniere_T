@@ -12,12 +12,12 @@ namespace Bonbonniere.Infrastructure
             services.AddSingleton<IClock, Clock>();
 
             services.AddDbContext<BonbonniereContext>(o =>
-                o.UseSqlServer(settings.BonbonniereConnection, b => b.MigrationsAssembly("Bonbonniere.Data")));
-                //o.UseInMemoryDatabase("BonbonniereInMemory"));
+                //o.UseSqlServer(settings.BonbonniereConnection, b => b.MigrationsAssembly("Bonbonniere.Data")));
+                o.UseInMemoryDatabase("BonbonniereInMemory"));
 
             services.AddDbContext<ThirdPartyContext>(o =>
-                o.UseSqlServer(settings.ThirdPartyConnection, b => b.MigrationsAssembly("Bonbonniere.Data")));
-                //o.UseInMemoryDatabase("ThirdPartyInMemory"));
+                //o.UseSqlServer(settings.ThirdPartyConnection, b => b.MigrationsAssembly("Bonbonniere.Data")));
+                o.UseInMemoryDatabase("ThirdPartyInMemory"));
         }
     }
 }

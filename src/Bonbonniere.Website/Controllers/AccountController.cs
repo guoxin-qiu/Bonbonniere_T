@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Bonbonniere.Core.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+﻿using Bonbonniere.Infrastructure.Extensions;
+using Bonbonniere.Services.Interfaces;
 using Bonbonniere.Website.ViewModels;
-using Bonbonniere.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Bonbonniere.Website.Controllers
 {
@@ -13,7 +13,7 @@ namespace Bonbonniere.Website.Controllers
         private readonly IAccountService _accountService;
 
         public AccountController(
-            ILogger<AccountController> logger, 
+            ILogger<AccountController> logger,
             IAccountService accountService)
         {
             _logger = logger;
@@ -40,7 +40,9 @@ namespace Bonbonniere.Website.Controllers
                 var result = _accountService.CheckSignIn(model.Email, model.Password);
                 if (result)
                 {
-                    HttpContextExtensions.SetAuthentication(model.Email, model.RememberMe); // TODO
+                    var accountInfo = _accountService.GetAccountInfo(model.Email);
+                    HttpContext.SetAuthentication(accountInfo.Email, accountInfo.UserName, model.RememberMe);
+
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -57,7 +59,8 @@ namespace Bonbonniere.Website.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignOut()
         {
-            HttpContextExtensions.RemoveAuthentication(); // TODO:
+            HttpContext.RemoveAuthentication();
+
             return RedirectToLocal("/");
         }
 

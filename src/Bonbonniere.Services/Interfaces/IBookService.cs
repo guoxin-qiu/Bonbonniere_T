@@ -1,7 +1,7 @@
 ﻿using Bonbonniere.Core.Models.Bonbonniere.BookStore;
 using System.Collections.Generic;
 
-namespace Bonbonniere.Core.Interfaces
+namespace Bonbonniere.Services.Interfaces
 {
     public interface IBookService
     {

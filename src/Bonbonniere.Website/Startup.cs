@@ -10,6 +10,8 @@ using Bonbonniere.Infrastructure.EFData;
 using NLog.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace Bonbonniere.Website
 {
@@ -43,6 +45,10 @@ namespace Bonbonniere.Website
             services.Configure<EnvSettings>(Configuration.GetSection("Settings"));
             services.RegisterInfrastructureModule(Configuration.GetSection("Settings").Get<EnvSettings>());
             services.RegisterServiceModule();
+
+            // Add cookie middleware to the service collection and configure it
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => options.LoginPath = new PathString("/Account/SignIn"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +66,9 @@ namespace Bonbonniere.Website
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            // Add the authentication middleware to the pipeline
+            app.UseAuthentication();
 
             app.UseStaticFiles();
             app.UseStatusCodePages();
