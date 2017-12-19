@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Source Code", "1.Source Code", "{26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4FD88EB2-7E55-4894-BC6C-286E0F1AE6D0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Tests", "2.Tests", "{4FD88EB2-7E55-4894-BC6C-286E0F1AE6D0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bonbonniere.Website", "src\Bonbonniere.Website\Bonbonniere.Website.csproj", "{D7DBC072-991F-4FBB-925F-86CB3F8A1A31}"
 EndProject
@@ -18,6 +18,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bonbonniere.Services", "src\Bonbonniere.Services\Bonbonniere.Services.csproj", "{4339128C-0CE9-47A4-8CFE-82FE5DEEFDE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bonbonniere.UITests", "tests\Bonbonniere.UITests\Bonbonniere.UITests.csproj", "{30775965-EE81-47C7-8022-06B1CE18F3D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solution Items", "{C137B401-EB56-471E-BBAA-3029588B2924}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
