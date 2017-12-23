@@ -1,3 +1,2 @@
 # Bonbonniere
-
-### Foucs on simple architecture
+Focus on simple architecture
