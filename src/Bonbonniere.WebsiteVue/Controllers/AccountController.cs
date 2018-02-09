@@ -1,29 +1,42 @@
 ﻿using Bonbonniere.Infrastructure.Extensions;
+using Bonbonniere.Infrastructure.Utilities.Helpers;
 using Bonbonniere.Services.Interfaces;
 using Bonbonniere.Services.Messaging.AccountService;
-using Bonbonniere.Website.ViewModels;
+using Bonbonniere.WebsiteVue.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using System;
 
-namespace Bonbonniere.Website.Controllers
+namespace Bonbonniere.WebsiteVue.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
+        private readonly IMemoryCache _memoryCache;
         private readonly IAccountService _accountService;
 
         public AccountController(
             ILogger<AccountController> logger,
+            IMemoryCache memoryCache,
             IAccountService accountService)
         {
             _logger = logger;
+            _memoryCache = memoryCache;
             _accountService = accountService;
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult SignIn(string returnUrl = null)
+        public IActionResult Index(string returnUrl = null)
+        {
+            return RedirectToAction("Login");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
@@ -32,7 +45,7 @@ namespace Bonbonniere.Website.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult SignIn(LoginViewModel model, string returnUrl = null)
+        public IActionResult Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
 
@@ -44,6 +57,9 @@ namespace Bonbonniere.Website.Controllers
                 {
                     var accountInfo = _accountService.GetAccountInfo(new GetAccountInfoRequest { Email = model.Email });
                     HttpContext.SetAuthentication(accountInfo.User.Email, accountInfo.User.UserName, model.RememberMe);
+
+                    var token = TokenHelper.GetToken(model.Email, model.Password); // TODO:
+                    _memoryCache.Set(token, token, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromDays(5)));
 
                     return RedirectToLocal(returnUrl);
                 }
@@ -59,9 +75,10 @@ namespace Bonbonniere.Website.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignOut()
+        public IActionResult Logout()
         {
             HttpContext.RemoveAuthentication();
+            _memoryCache.Remove(HttpContext.Request.Headers["Authorization"]);
 
             return RedirectToLocal("/");
         }
@@ -77,6 +94,5 @@ namespace Bonbonniere.Website.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-
     }
 }

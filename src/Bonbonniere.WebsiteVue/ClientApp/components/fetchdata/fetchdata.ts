@@ -1,22 +1,22 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface User {
+    email: string;
+	username: string;
+	gender: string;
+	address: string;
 }
 
 @Component
 export default class FetchDataComponent extends Vue {
-    forecasts: WeatherForecast[] = [];
+	users: User[] = [];
 
     mounted() {
-        fetch('api/SampleData/WeatherForecasts')
-            .then(response => response.json() as Promise<WeatherForecast[]>)
+		fetch('api/user/getall')
+			.then(response => response.json() as Promise<User[]>)
             .then(data => {
-                this.forecasts = data;
+				this.users = data;
             });
     }
 }
