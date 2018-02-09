@@ -25,7 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solut
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bonbonniere.WebsiteVue", "src\Bonbonniere.WebsiteVue\Bonbonniere.WebsiteVue.csproj", "{37C62780-FC61-4062-A5A8-C026EF3E6585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bonbonniere.WebsiteVue", "src\Bonbonniere.WebsiteVue\Bonbonniere.WebsiteVue.csproj", "{37C62780-FC61-4062-A5A8-C026EF3E6585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bonbonniere.UnitTests", "tests\Bonbonniere.UnitTests\Bonbonniere.UnitTests.csproj", "{003B6E6F-7842-473A-BA96-23AE82D2F065}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{003B6E6F-7842-473A-BA96-23AE82D2F065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003B6E6F-7842-473A-BA96-23AE82D2F065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003B6E6F-7842-473A-BA96-23AE82D2F065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003B6E6F-7842-473A-BA96-23AE82D2F065}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{4339128C-0CE9-47A4-8CFE-82FE5DEEFDE9} = {26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}
 		{30775965-EE81-47C7-8022-06B1CE18F3D6} = {4FD88EB2-7E55-4894-BC6C-286E0F1AE6D0}
 		{37C62780-FC61-4062-A5A8-C026EF3E6585} = {26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}
+		{003B6E6F-7842-473A-BA96-23AE82D2F065} = {4FD88EB2-7E55-4894-BC6C-286E0F1AE6D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56AB2333-A45B-4381-849D-19ADEFA99174}
