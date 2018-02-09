@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Source Code", "1.Source Code", "{26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}"
 EndProject
@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solut
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bonbonniere.WebsiteVue", "src\Bonbonniere.WebsiteVue\Bonbonniere.WebsiteVue.csproj", "{37C62780-FC61-4062-A5A8-C026EF3E6585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{30775965-EE81-47C7-8022-06B1CE18F3D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30775965-EE81-47C7-8022-06B1CE18F3D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30775965-EE81-47C7-8022-06B1CE18F3D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C62780-FC61-4062-A5A8-C026EF3E6585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{D72E22F7-4D46-48AA-9CD3-A8E26D2A48F7} = {26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}
 		{4339128C-0CE9-47A4-8CFE-82FE5DEEFDE9} = {26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}
 		{30775965-EE81-47C7-8022-06B1CE18F3D6} = {4FD88EB2-7E55-4894-BC6C-286E0F1AE6D0}
+		{37C62780-FC61-4062-A5A8-C026EF3E6585} = {26B352AB-DBBC-4215-9C76-5A5E5E2C10C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56AB2333-A45B-4381-849D-19ADEFA99174}

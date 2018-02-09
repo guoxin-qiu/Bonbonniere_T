@@ -42,3 +42,4 @@ launchSettings.json
 TestResults/
 global.json
 korebuild-lock.txt
+/src/Bonbonniere.WebsiteVue/wwwroot/dist
