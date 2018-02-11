@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Denis</Authors>
+    <Company>SYDQ</Company>
+    <Product>Bonbonniere</Product>
   </PropertyGroup>
 
   <ItemGroup>

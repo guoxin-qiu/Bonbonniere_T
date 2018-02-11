@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <Authors>Denis</Authors>
+
+    <Company>SYDQ</Company>
+
+    <Product>Bonbonniere</Product>
   </PropertyGroup>
 
   <ItemGroup>
