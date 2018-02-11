@@ -21,12 +21,12 @@ namespace Bonbonniere.WebsiteVue
 {
     public class Startup
     {
-        private string _Project_Name = "Bonbonniere";
+        private string _Project_Name = string.Empty;
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //_Project_Name = Configuration["Settings:ProjectName"];
+            _Project_Name = Configuration["Settings:ProjectName"];
         }
 
         public IConfiguration Configuration { get; }
