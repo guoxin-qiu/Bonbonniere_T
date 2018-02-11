@@ -1,4 +1,5 @@
-﻿using Bonbonniere.Core.Models.ThirdParty;
+﻿using Bonbonniere.Core.Enums;
+using Bonbonniere.Core.Models.ThirdParty;
 using System.Linq;
 
 namespace Bonbonniere.Infrastructure.EFData
@@ -18,6 +19,13 @@ namespace Bonbonniere.Infrastructure.EFData
                     {
                         Email = "admin@admin.net",
                         Password = "123456",
+                        IsActive = true,
+                        UserProfile = new UserProfile
+                        {
+                            Address = "Dalian China",
+                            Gender = Gender.Male,
+                            UserName = "administrator"
+                        }
                     }
                 };
                 context.AddRange(users);

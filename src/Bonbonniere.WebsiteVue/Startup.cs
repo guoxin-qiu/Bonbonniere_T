@@ -4,8 +4,10 @@ using Bonbonniere.Infrastructure.Environment;
 using Bonbonniere.Services;
 using Bonbonniere.WebsiteVue.ApiControllers;
 using Bonbonniere.WebsiteVue.MvcMiddlewares;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,9 +49,9 @@ namespace Bonbonniere.WebsiteVue
             services.RegisterInfrastructureModule(Configuration.GetSection("Settings").Get<EnvSettings>());
             services.RegisterServiceModule();
 
-            //// Add cookie middleware to the service collection and configure it
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            //    .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
+            // Add cookie middleware to the service collection and configure it
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
 
             services.AddSwaggerGen(sg =>
             {

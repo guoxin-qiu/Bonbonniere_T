@@ -38,6 +38,10 @@ namespace Bonbonniere.WebsiteVue.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToLocal("/");
+            }
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -73,14 +77,13 @@ namespace Bonbonniere.WebsiteVue.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public IActionResult Logout()
         {
             HttpContext.RemoveAuthentication();
             _memoryCache.Remove(HttpContext.Request.Headers["Authorization"]);
 
-            return RedirectToLocal("/");
+            return RedirectToLocal("/Account");
         }
 
         private IActionResult RedirectToLocal(string returnUrl)

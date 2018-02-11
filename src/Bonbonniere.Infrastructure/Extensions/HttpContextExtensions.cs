@@ -29,7 +29,10 @@ namespace Bonbonniere.Infrastructure.Extensions
 
         public static void RemoveAuthentication(this HttpContext httpContext)
         {
-            httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme).Wait();
+            if (httpContext.User.Identity.IsAuthenticated)
+            {
+                httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme).Wait();
+            }
         }
     }
 }
