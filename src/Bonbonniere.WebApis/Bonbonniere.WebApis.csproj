@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Denis</Authors>
+    <Company>SYDQ</Company>
+    <Product>Bonbonniere</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\Bonbonniere.WebApis.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bonbonniere.Core\Bonbonniere.Core.csproj" />
+    <ProjectReference Include="..\Bonbonniere.Infrastructure.Utilities\Bonbonniere.Infrastructure.Utilities.csproj" />
+    <ProjectReference Include="..\Bonbonniere.Infrastructure\Bonbonniere.Infrastructure.csproj" />
+    <ProjectReference Include="..\Bonbonniere.Services\Bonbonniere.Services.csproj" />
+  </ItemGroup>
+
+</Project>
